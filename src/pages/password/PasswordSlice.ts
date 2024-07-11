@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 interface PasswordState {
   value: string;
@@ -8,12 +8,25 @@ interface PasswordState {
 const initialState: PasswordState = {
   value: '',
   isCorrect: null,
-};
+}
 
-export const passwordSlice = createSlice({
+const passwordSlice = createSlice({
   name: 'password',
   initialState,
-  reducers: {}
+  reducers: {
+    writeDigit: (state,action:PayloadAction<number>) => {
+      if (state.value.length < 4) {
+        state.value += action.payload;
+      }
+    },
+    deleteDigit: (state) => {
+      state.value = state.value.slice(0, -1);
+    },
+    truePassword: (state) => {
+      state.isCorrect = state.value === '1337';
+    },
+  }
 });
 
+export const {writeDigit, deleteDigit, truePassword} = passwordSlice.actions;
 export default passwordSlice.reducer;

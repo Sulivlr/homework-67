@@ -1,8 +1,9 @@
 import {configureStore} from '@reduxjs/toolkit';
+import passwordSlice from './src/pages/password/PasswordSlice';
 
 export const store = configureStore({
   reducer: {
-
+   password: passwordSlice,
   }
 });
 

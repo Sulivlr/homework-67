@@ -1,7 +1,9 @@
+import Password from './pages/password/Password';
+
 const App = () => {
     return (
         <>
-          <h1>Privet!</h1>
+          <Password />
         </>
     );
 };
