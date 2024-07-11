@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../../store";
-import {writeDigit, deleteDigit, truePassword} from './PasswordSlice.ts'
+import {writeDigit, deleteDigit, truePassword} from './PasswordSlice.ts';
 
 const Password: React.FC = () => {
 
@@ -11,7 +11,7 @@ const Password: React.FC = () => {
 
   const click = (digit: number) => {
     dispatch(writeDigit(digit));
-  }
+  };
 
   const deleteClick = () => {
     dispatch(deleteDigit());
@@ -19,11 +19,11 @@ const Password: React.FC = () => {
 
   const enterClick = () => {
     dispatch(truePassword());
-  }
+  };
 
   const passwordStars = () => {
     return '*'.repeat(password.length);
-  }
+  };
 
   return (
     <div className="container-fluid">
